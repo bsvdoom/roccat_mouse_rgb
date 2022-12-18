@@ -73,8 +73,9 @@ bool is_device_supported(const hidraw_devinfo &info)
 
 	if (info.vendor != 0x1e7d)
 		return false; // Not ROCCAT
-
-	return (info.product >= 0x2db4 && info.product <= 0x2e27); // known "Kone *" mice
+	return
+	    (info.product >= 0x2db4 && info.product <= 0x2e27) // known "Kone *" mice
+	    || (info.product >= 0x2d5a && info.product <= 0x2e27); // known "Savu" mice
 }
 
 int main(int argc, char **argv)
